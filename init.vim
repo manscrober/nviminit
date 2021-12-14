@@ -1,19 +1,19 @@
-call plug#begin("~/.config/nvim/plugged")
-  " plugin section
-  plug 'drewtempelmeyer/palenight.vim'
-  plug 'mbbill/undotree'
-  plug 'preservim/nerdtree'
-  plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-  plug 'xuyuanp/nerdtree-git-plugin'
-  plug 'ryanoasis/vim-devicons'
-  plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  plug 'junegunn/fzf.vim'
-  plug 'neoclide/coc.nvim', {'branch':'release'}
-  plug 'w0rp/ale'
-  plug 'sheerun/vim-polyglot'
-  plug 'nvim-treesitter/nvim-treesitter'
-  plug 'prettier/vim-prettier'
-  plug 'airblade/vim-gitgutter'
+" plugin section
+call plug#begin('~/AppData/Local/nvim/plugged') 
+  Plug 'drewtempelmeyer/palenight.vim'
+  Plug 'mbbill/undotree'
+  Plug 'preservim/nerdtree'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'xuyuanp/nerdtree-git-plugin'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'neoclide/coc.nvim', {'branch':'release'}
+  Plug 'w0rp/ale'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'prettier/vim-prettier'
+  Plug 'airblade/vim-gitgutter'
 call plug#end()
 " everything after this line will be the config section
 set number
@@ -191,30 +191,30 @@ nmap <leader>ac  <plug>(coc-codeaction)
 nmap <leader>qf  <plug>(coc-fix-current)
 
 " " add `:format` command to format current buffer.
-command! -nargs=0 format :call cocaction('format')
+command! -nargs=0 Format :call cocaction('format')
 
 " " add `:fold` command to fold current buffer.
-command! -nargs=? fold :call     cocaction('fold', <f-args>)
+command! -nargs=? Fold :call     cocaction('fold', <f-args>)
 
 " " add `:or` command for organize imports of the current buffer.
-command! -nargs=0 or   :call     cocaction('runcommand', 'editor.action.organizeimport')
+command! -nargs=0 Or   :call     cocaction('runcommand', 'editor.action.organizeimport')
 
 " " add (neo)vim's native statusline support.
 " " note: please see `:h coc-status` for integrations with external plugins that
 " " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-function! gitbranch()
+function! Gitbranch()
   return system("git rev-parse --abbrev-ref head 2>/dev/null | tr -d '\n'")
 endfunction
 
-function! statuslinegit()
-  let l:branchname = gitbranch()
+function! Statuslinegit()
+  let l:branchname = Gitbranch()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
 set statusline=
 set statusline+=%#pmenusel#
-set statusline+=%{statuslinegit()}
+set statusline+=%{Statuslinegit()}
 set statusline+=%#linenr#
 set statusline+=\ %f
 set statusline+=%m\
