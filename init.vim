@@ -163,7 +163,7 @@ else
 endif
 
 " " highlight the symbol and its references when holding the cursor.
-autocmd cursorhold * silent call cocactionasync('highlight')
+autocmd cursorhold * silent call CocActionAsync('highlight')
 
 " " symbol renaming.
 nmap <leader>rn <plug>(coc-rename)
@@ -175,9 +175,9 @@ nmap <leader>f  <plug>(coc-format-selected
 augroup mygroup
   autocmd!
   " " setup formatexpr specified filetype(s).
-  autocmd filetype typescript,json setl formatexpr=cocaction('formatselected')
+  autocmd filetype typescript,json setl formatexpr=CocAction('formatselected')
   " " update signature help on jump placeholder.
-  autocmd user cocjumpplaceholder call cocactionasync('showsignaturehelp')
+  autocmd user cocjumpplaceholder call CocActionAsync('showsignaturehelp')
 augroup end
 
 " " applying codeaction to the selected region.
@@ -191,13 +191,13 @@ nmap <leader>ac  <plug>(coc-codeaction)
 nmap <leader>qf  <plug>(coc-fix-current)
 
 " " add `:format` command to format current buffer.
-command! -nargs=0 Format :call cocaction('format')
+command! -nargs=0 Format :call CocAction('format')
 
 " " add `:fold` command to fold current buffer.
-command! -nargs=? Fold :call     cocaction('fold', <f-args>)
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " " add `:or` command for organize imports of the current buffer.
-command! -nargs=0 Or   :call     cocaction('runcommand', 'editor.action.organizeimport')
+command! -nargs=0 Or   :call     CocAction('runcommand', 'editor.action.organizeimport')
 
 " " add (neo)vim's native statusline support.
 " " note: please see `:h coc-status` for integrations with external plugins that
